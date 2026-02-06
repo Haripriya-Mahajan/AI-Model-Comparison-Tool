@@ -1,115 +1,96 @@
-# AI-Model-Comparison-Tool
+# AI Model Comparison Tool
 
-This project is a Python-based research assistant for analyzing large language models (LLMs). It allows you to extract text from PDFs, compress them for research, load benchmark CSVs, fetch model evaluation data from the Artificial Analysis API, and query models by intelligence, speed, or latency.
+A Python-based platform to analyze and compare **AI Models** using research papers, benchmark CSVs, and Artificial Analysis API data.
 
-Features
+---
 
-Extract text from PDF research papers.
+## Project Overview
 
-Optional text compression using Scaledown API for faster processing.
+This tool helps researchers and enthusiasts explore, benchmark, and compare AI models efficiently. Users can:
 
-Load and cache benchmark CSV data for offline use.
+- Extract text from PDFs of research papers.
+- Compress extracted text for faster AI analysis using the Scaledown API.
+- Load benchmark CSVs for performance metrics.
+- Fetch AI model evaluations like intelligence, coding, math, speed, and latency from the Artificial Analysis API.
+- Compare models by intelligence, speed, or latency.
+- Retrieve relevant research and benchmark evidence for queries.
 
-Fetch and cache Artificial Analysis API data for model comparisons.
+---
 
-Query models by:
+## Features
 
-Intelligence / reasoning ability
+- **PDF Extraction:** Automatically reads uploaded PDFs and extracts text.
+- **Text Compression:** Optional compression of text using the Scaledown API for AI research use.
+- **Benchmark Analysis:** Load CSV benchmarks for model comparison.
+- **Artificial Analysis Integration:** Fetch evaluation metrics of models via API.
+- **Intelligent Query Handling:** Supports queries about intelligence, speed, latency, or research evidence.
+- **Model Comparison:** Compare canonical AI models and their API variants side by side.
 
-Speed (tokens/sec)
+---
 
-Latency (time to first token)
+## Usage
 
-Comparison of canonical LLM families (GPT, Gemini, Claude, LLaMA).
+1. Mount Google Drive in Colab:
 
-Automatic caching to avoid repeated downloads or compressions.
-
-Search PDFs and benchmarks for query-based evidence.
-
-Installation
-
-Clone the repository:
-
-git clone https://github.com/<your-username>/LLM-Research-Tool.git
-cd LLM-Research-Tool
-
-
-Open the project in Google Colab.
-
-Install required packages:
-
-!pip install PyPDF2 pandas requests
-
-Usage
-
-Mount Google Drive (for caching PDFs, compressed texts, and API data):
-
+```python
 from google.colab import drive
 drive.mount('/content/drive')
+```
+2. Install dependencies:
 
+```python
+!pip install PyPDF2 pandas requests
+```
+3. Upload PDFs and CSV benchmarks when prompted.
 
-Upload PDFs (or use cached PDFs).
+4. Provide API keys for Scaledown (optional) and Artificial Analysis API (optional).
 
-Optionally enter Scaledown API key to compress PDFs for faster research.
+5. Enter a query to get comparisons or research results.
 
-Upload benchmark CSV (or use cached CSV).
+---
 
-Enter Artificial Analysis API key to fetch LLM performance data.
+## Example Queries
+"Which model is better in intelligence?"
 
-Run queries:
+"Top 5 fastest models"
 
-user_query = input("Enter your query: ")
-print(answer_query(user_query))
+"Latency comparison between GPT-4 and Claude 3 Opus"
 
+"Research on GPT-4 reasoning performance"
 
-Examples of queries:
+---
 
-Which model has lower latency, GPT or Gemini?
+## Cache Management
+Cached data is stored in LLM_Project_Cache in Google Drive:
 
-Top models by intelligence
+- pdf_texts.pkl — Extracted PDF text.
 
-Fastest models
+- pdf_texts_compressed.pkl — Compressed PDF text.
 
-GPT performance benchmarks
+- benchmark_data.pkl — Benchmark CSV data.
 
-File Structure
-LLM-Research-Tool/
-│
-├─ main_colab_notebook.ipynb       # Main Colab notebook
-├─ README.md                       # Project overview
-├─ requirements.txt                # Optional pip dependencies
-└─ LLM_Project_Cache/              # Cached PDFs, compressed texts, CSVs, API data
+- aa_api_models.pkl — Artificial Analysis API data.
 
-Caching Behavior
+This avoids repeated uploads and API calls.
 
-PDFs → cached at pdf_texts.pkl
+---
 
-Compressed PDFs → cached at pdf_texts_compressed.pkl (only compressed once per runtime)
+## Tech Stack
+- Python 3.x
 
-Benchmark CSV → cached at benchmark_data.pkl
+- PyPDF2, pandas, requests
 
-API Data → cached at aa_api_models.pkl
+- Google Colab integration
 
-The system automatically skips compression or API fetch if cached data exists.
+- Scaledown API for text compression
 
-Dependencies
+- Artificial Analysis API for model benchmarking
 
-Python 3.x
+---
 
-PyPDF2
+## Author
+Haripriya Mahajan
 
-pandas
+B.Tech CSE-AIML, LNCT
 
-requests
-
-Optional APIs:
-
-Scaledown API
- (for text compression)
-
-Artificial Analysis API
- (for model evaluation data)
-
-License
-
-This project is released under the MIT License.
+Aspiring Data Scientist
